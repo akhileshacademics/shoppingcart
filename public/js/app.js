@@ -4,9 +4,9 @@ let bottleQuantity = 0;
 let scarfQuantity = 0;
 let couponUsed = false;
 
-const totePrice = 38;
-const bottlePrice = 18;
-const scarfPrice = 29;
+const totePrice = Number(document.getElementById('tote-price').innerHTML);
+const bottlePrice = Number(document.getElementById('bottle-price').innerHTML);
+const scarfPrice = Number(document.getElementById('scarf-price').innerHTML);
 
 function updateCart() {
   const subtotal = (toteQuantity * totePrice) + (bottleQuantity * bottlePrice) + (scarfQuantity * scarfPrice);
@@ -20,9 +20,9 @@ function updateCart() {
   document.getElementById('scarf-cart-item').hidden = scarfQuantity === 0;
   document.getElementById('empty-cart').hidden = itemCount !== 0;
 
-  document.getElementById('tote-quantity').innerHTML = toteQuantity;
-  document.getElementById('bottle-quantity').innerHTML = bottleQuantity;
-  document.getElementById('scarf-quantity').innerHTML = scarfQuantity;
+  document.getElementById('tote-quantity').innerHTML = 'Quantity: ' + toteQuantity;
+  document.getElementById('bottle-quantity').innerHTML = 'Quantity: ' + bottleQuantity;
+  document.getElementById('scarf-quantity').innerHTML = 'Quantity: ' + scarfQuantity;
   document.getElementById('header-count').innerHTML = itemCount;
   document.getElementById('item-label').innerHTML = itemCount + ' item(s)';
   document.getElementById('subtotal').innerHTML = '$' + subtotal.toFixed(2);
