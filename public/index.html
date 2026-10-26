@@ -29,7 +29,48 @@
             <h2>Items</h2>
             <span id="item-label">3 items</span>
           </div>
-          <div id="cart-list"></div>
+          <div id="cart-list">
+            <p id="empty-cart" hidden>Your cart is empty.</p>
+
+            <article id="tote-cart-item" class="cart-product">
+              <div class="product-art art-orange">👜</div>
+              <div class="item-info">
+                <h3>Everyday Tote</h3>
+                <p>Sand canvas · One size</p>
+                <p class="item-price">$38.00</p>
+              </div>
+              <div class="item-actions">
+                <button class="remove-button" onclick="removeTote()">Remove</button>
+                <div class="quantity-control"><span id="tote-quantity">1</span></div>
+              </div>
+            </article>
+
+            <article id="bottle-cart-item" class="cart-product" hidden>
+              <div class="product-art art-green">🫗</div>
+              <div class="item-info">
+                <h3>Daily Water Bottle</h3>
+                <p>500 ml · Sage</p>
+                <p class="item-price">$18.00</p>
+              </div>
+              <div class="item-actions">
+                <button class="remove-button" onclick="removeBottle()">Remove</button>
+                <div class="quantity-control"><span id="bottle-quantity">0</span></div>
+              </div>
+            </article>
+
+            <article id="scarf-cart-item" class="cart-product" hidden>
+              <div class="product-art art-blue">🧣</div>
+              <div class="item-info">
+                <h3>Oversized Scarf</h3>
+                <p>Warm oat</p>
+                <p class="item-price">$29.00</p>
+              </div>
+              <div class="item-actions">
+                <button class="remove-button" onclick="removeScarf()">Remove</button>
+                <div class="quantity-control"><span id="scarf-quantity">0</span></div>
+              </div>
+            </article>
+          </div>
           <a class="continue-link" href="#products">← Continue shopping</a>
         </section>
 
@@ -41,13 +82,13 @@
             <label for="promo-code">Promo code</label>
             <div class="promo-input">
               <input id="promo-code" type="text" placeholder="Try SAVE10" />
-              <button id="apply-promo" type="button">Apply</button>
+              <button id="apply-promo" type="button" onclick="applyCoupon()">Apply</button>
             </div>
             <p id="promo-message" class="promo-message" aria-live="polite"></p>
           </div>
           <div class="summary-row discount-row" id="discount-row" hidden><span>Discount</span><strong id="discount">-$0.00</strong></div>
           <div class="summary-total"><span>Total</span><strong id="total">$0.00</strong></div>
-          <button id="checkout-button" class="checkout-button" type="button">Checkout securely</button>
+          <button id="checkout-button" class="checkout-button" type="button" onclick="checkout()">Checkout securely</button>
           <p class="secure-note">🔒 Secure checkout · Taxes calculated at checkout</p>
         </aside>
       </div>
@@ -55,7 +96,26 @@
       <section id="products" class="recommendations" aria-labelledby="recommendation-title">
         <p class="eyebrow">YOU MAY ALSO LIKE</p>
         <h2 id="recommendation-title">Complete the look</h2>
-        <div class="product-grid" id="product-grid"></div>
+        <div class="product-grid" id="product-grid">
+          <article class="recommended-product">
+            <div class="product-art art-orange">👜</div>
+            <h3>Everyday Tote</h3>
+            <p>Sand canvas · One size</p>
+            <div class="product-bottom"><strong>$38.00</strong><button class="add-button" onclick="addTote()">Add to cart</button></div>
+          </article>
+          <article class="recommended-product">
+            <div class="product-art art-green">🫗</div>
+            <h3>Daily Water Bottle</h3>
+            <p>500 ml · Sage</p>
+            <div class="product-bottom"><strong>$18.00</strong><button class="add-button" onclick="addBottle()">Add to cart</button></div>
+          </article>
+          <article class="recommended-product">
+            <div class="product-art art-blue">🧣</div>
+            <h3>Oversized Scarf</h3>
+            <p>Warm oat</p>
+            <div class="product-bottom"><strong>$29.00</strong><button class="add-button" onclick="addScarf()">Add to cart</button></div>
+          </article>
+        </div>
       </section>
     </main>
 
